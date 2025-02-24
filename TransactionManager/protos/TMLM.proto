@@ -1,0 +1,34 @@
+﻿syntax = "proto3";
+
+service LeaseRequestService {
+	rpc LeaseBroadCast (LeaseBroadCastRequest) returns (LeaseBroadCastResponse);
+}
+
+
+message LeaseBroadCastRequest {
+	string id = 1;
+	string hostname = 2;
+	LeaseRequest leaseRequest = 3;
+	Transactions txs = 4;
+}
+
+message LeaseBroadCastResponse { 
+	string id = 1;
+	string hostname = 2;
+	bool status = 3;
+}
+
+message LeaseRequest {
+	repeated string keys = 1;
+}
+
+message Transactions {
+	string id = 1;
+	repeated string reads = 2;
+	repeated TransactionDadInt writes = 3;
+}
+
+message TransactionDadInt {
+	string key = 1;
+	int32 value = 2;
+}

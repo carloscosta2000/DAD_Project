@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+
+service TransactionService {
+	rpc TxSubmit (TransactionSubmitRequest) returns (TransactionSubmitReply);
+}
+
+message TransactionSubmitRequest {
+	string id = 1;
+	repeated string reads = 2;
+	repeated DadInt writes = 3;
+}
+
+message TransactionSubmitReply {
+	repeated DadInt reads = 1;
+}
+
+message DadInt {
+	string key = 1;
+	int32 value = 2;
+}

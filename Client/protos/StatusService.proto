@@ -1,0 +1,34 @@
+﻿syntax = "proto3";
+
+service StatusService {
+    rpc Status (StatusRequest) returns (StatusReply);
+}
+
+message DadIntResult{
+    string key = 1;
+    int32 value = 2;
+}
+
+message StatusRequest {
+    string id = 1;
+}
+
+// TODO
+message LeaseRequestStatus {
+    string id = 1;
+    repeated string keys = 2;
+}
+
+message StatusReply {
+    string instance_id = 1;              //TM or LM Identifier
+    string state = 2;                    //If it's crashed or not-crashed
+    repeated string suspected = 3;       //Suspected instances of the instance represented by instance_id
+    int32 current_time_slot = 4;         //Current time slot of each instance
+    /*** TM FIELDS ***/
+    repeated DadIntResult current_state = 5;   //Current State of Instance
+    /*** LM FIELDS ***/
+    int32 current_epoch = 6;
+    int32 current_leases_requests = 7;
+    repeated LeaseRequestStatus lease_requests = 8;
+    string type = 9;
+}

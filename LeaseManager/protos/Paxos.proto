@@ -1,0 +1,60 @@
+﻿syntax = "proto3";
+
+service PaxosServices {
+	rpc PrepareSend (PrepareRequest) returns (PrepareReply);
+	rpc PrepareReceive (PrepareRequest) returns (PrepareReply);
+
+	rpc PromiseSend (PromiseRequest) returns (PromiseReply);
+	rpc PromiseReceive (PromiseRequest) returns (PromiseReply);
+
+	rpc AcceptSend (AcceptRequest) returns (AcceptReply);
+	rpc AcceptReceive (AcceptRequest) returns (AcceptReply);
+
+	rpc AcceptedSend (AcceptedRequest) returns (AcceptedReply);
+	rpc AcceptedReceive (AcceptedRequest) returns (AcceptedReply);
+}
+
+message PrepareRequest {
+	string id = 1;
+	int32 read_timestamp = 2;
+}
+
+message PrepareReply{
+	bool ok = 1;
+}
+
+message LeaseOrder {
+	repeated string tms = 1;
+}
+
+message PromiseRequest {
+	string id = 1;
+	string receiver = 2;
+	int32 write_timestamp = 3;
+	map<string, LeaseOrder> accepted_value = 4;
+}
+
+message PromiseReply{
+	bool status = 1;
+}
+
+message AcceptRequest {
+	string id = 1;
+	int32 read_timestamp = 2;
+	map<string, LeaseOrder> accepted_value = 3;
+}
+
+message AcceptReply{
+	bool status = 1;
+}
+
+message AcceptedRequest{
+	string sender = 1;
+	string receiver = 2;
+	int32 write_timestamp = 3;
+	map<string, LeaseOrder> accepted_value = 4;
+}
+
+message AcceptedReply{
+	bool status = 1;
+}

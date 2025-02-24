@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+service RecoverService {
+	rpc SendCrashRecoverRequest (CrashRecoverRequest) returns (CrashRecoverReply);
+	rpc ReceiveCrashRecoverRequest (CrashRecoverRequest) returns (CrashRecoverReply);
+
+	rpc ReceiveUpdateState(UpdateStateRequest) returns (UpdateStateReply);
+}
+
+message CrashRecoverRequest {
+	string sender = 1;
+}
+
+message CrashRecoverReply{
+	bool ok = 1;
+}
+
+message UpdateStateRequest {
+	string sender = 1;
+	repeated DadIntRecover state = 2;
+}
+
+message UpdateStateReply{
+	bool ok = 1;
+}
+
+message DadIntRecover {
+	string key = 1;
+	int32 value = 2;
+}

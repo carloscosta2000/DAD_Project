@@ -1,0 +1,61 @@
+﻿syntax = "proto3";
+
+service PaxosServices {
+	rpc PrepareSend (PrepareRequest) returns (PrepareReply);
+	rpc PrepareReceive (PrepareRequest) returns (PrepareReply);
+
+	rpc PromiseSend (PromiseRequest) returns (PromiseReply);
+	rpc PromiseReceive (PromiseRequest) returns (PromiseReply);
+
+	rpc AcceptSend (AcceptRequest) returns (AcceptReply);
+	rpc AcceptReceive (AcceptRequest) returns (AcceptReply);
+
+	rpc AcceptedSend (AcceptedRequest) returns (AcceptedReply);
+	rpc AcceptedReceive (AcceptedRequest) returns (AcceptedReply);
+}
+
+message PrepareRequest {
+	string sender = 1;
+	int32 read_timestamp = 2;
+}
+
+message PrepareReply{
+	bool ok = 1;
+}
+
+message DadInt {
+	string key = 1;
+	int32 value = 2;
+}
+
+message PromiseRequest {
+	string sender = 1;
+	string receiver = 2;
+	int32 write_timestamp = 3;
+	DadInt accepted_value = 4;
+}
+
+message PromiseReply{
+	bool ok = 1;
+}
+
+message AcceptRequest {
+	string sender = 1;
+	int32 read_timestamp = 2;
+	DadInt accepted_value = 3;
+}
+
+message AcceptReply{
+	bool ok = 1;
+}
+
+message AcceptedRequest{
+	string sender = 1;
+	string receiver = 2;
+	int32 write_timestamp = 3;
+	DadInt accepted_value = 4;
+}
+
+message AcceptedReply{
+	bool ok = 1;
+}

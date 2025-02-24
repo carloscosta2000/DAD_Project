@@ -1,0 +1,25 @@
+S 10
+T 12:10:15
+D 15000 
+P TM1 T localhost:1025
+P TM2 T localhost:10002
+P TM3 T localhost:10003
+P LM1 L localhost:10004
+P LM2 L localhost:10008
+P LM3 L localhost:10009
+P client1 C client1.txt
+P c2 C c2.txt
+P c3 C c3.txt
+#P c4 C c4.txt
+#P c5 C c5.txt
+#P c6 C c6.txt
+F 1 N N N N N N (TM1,TM2)
+F 2 N N N N N N (TM1,TM2)
+F 3 N N N N N N (TM1,TM2)
+F 4 N N N N N N (TM1,TM2)
+F 5 N N N N N N (TM1,TM2)
+F 6 N N N N N N (TM1,TM2)
+F 7 N N N N N N (TM1,TM2)
+F 8 N N N N N N (TM1,TM2)
+F 9 N N N N N N (TM1,TM2)
+F 10 N N N N N N (TM1,TM2)

@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB75FD05-AB37-4545-BC80-15191E263A27}"
+	ProjectSection(SolutionItems) = preProject
+		c2.txt = c2.txt
+		c3.txt = c3.txt
+		c4.txt = c4.txt
+		c5.txt = c5.txt
+		c6.txt = c6.txt
+		client1.txt = client1.txt
+		configuration.txt = configuration.txt
+		configuration_sample.txt = configuration_sample.txt
+		DADTKV_client_script_sample.txt = DADTKV_client_script_sample.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{221FDF99-7B6A-435E-9981-C5871CA5F11D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DADTKV", "DADTKV\DADTKV.csproj", "{8FE77FD0-8D9C-4FEA-8613-1286EF00EC22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeaseManager", "LeaseManager\LeaseManager.csproj", "{942F732B-4BD6-48B0-91CF-ED9D3988EDFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionManager", "TransactionManager\TransactionManager.csproj", "{E09B028A-D19E-47E2-ADDC-2B7625187EA9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8FE77FD0-8D9C-4FEA-8613-1286EF00EC22} = {8FE77FD0-8D9C-4FEA-8613-1286EF00EC22}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Control", "Control\Control.csproj", "{9B2BD971-553C-4128-9AE3-290641709716}"
+	ProjectSection(ProjectDependencies) = postProject
+		{221FDF99-7B6A-435E-9981-C5871CA5F11D} = {221FDF99-7B6A-435E-9981-C5871CA5F11D}
+		{942F732B-4BD6-48B0-91CF-ED9D3988EDFA} = {942F732B-4BD6-48B0-91CF-ED9D3988EDFA}
+		{E09B028A-D19E-47E2-ADDC-2B7625187EA9} = {E09B028A-D19E-47E2-ADDC-2B7625187EA9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{221FDF99-7B6A-435E-9981-C5871CA5F11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221FDF99-7B6A-435E-9981-C5871CA5F11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221FDF99-7B6A-435E-9981-C5871CA5F11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221FDF99-7B6A-435E-9981-C5871CA5F11D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE77FD0-8D9C-4FEA-8613-1286EF00EC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE77FD0-8D9C-4FEA-8613-1286EF00EC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE77FD0-8D9C-4FEA-8613-1286EF00EC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE77FD0-8D9C-4FEA-8613-1286EF00EC22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{942F732B-4BD6-48B0-91CF-ED9D3988EDFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942F732B-4BD6-48B0-91CF-ED9D3988EDFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942F732B-4BD6-48B0-91CF-ED9D3988EDFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942F732B-4BD6-48B0-91CF-ED9D3988EDFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E09B028A-D19E-47E2-ADDC-2B7625187EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E09B028A-D19E-47E2-ADDC-2B7625187EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E09B028A-D19E-47E2-ADDC-2B7625187EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E09B028A-D19E-47E2-ADDC-2B7625187EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2BD971-553C-4128-9AE3-290641709716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2BD971-553C-4128-9AE3-290641709716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2BD971-553C-4128-9AE3-290641709716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2BD971-553C-4128-9AE3-290641709716}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F8043FA-1BC0-4C30-874D-B4DBA821F1BE}
+	EndGlobalSection
+EndGlobal

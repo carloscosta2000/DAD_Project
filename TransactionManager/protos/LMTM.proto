@@ -1,0 +1,36 @@
+﻿syntax = "proto3";
+
+service LeaseAssignService {
+	rpc DecideLeases (RequestDecidedLeases) returns (ResponseDecidedLeases);
+}
+
+message RequestDecidedLeases {
+	string id = 1;
+	string hostname = 2;
+	map<string, TransactionManagers> leases = 3;
+	int32 epoch = 4;
+	repeated TransactionsOfEpoch txs = 5;
+
+}
+
+message TransactionManagers {
+	repeated string tms = 1;
+}
+
+message ResponseDecidedLeases {
+	string id = 1;
+	string hostname = 2;
+	bool status = 3;
+}
+
+
+message TransactionsOfEpoch {
+	string id = 1;
+	repeated string reads = 2;
+	repeated TransactionOfEpochDadInt writes = 3;
+}
+
+message TransactionOfEpochDadInt {
+	string key = 1;
+	int32 value = 2;
+}

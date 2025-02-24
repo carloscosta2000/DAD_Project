@@ -1,0 +1,52 @@
+﻿syntax = "proto3";
+
+service ReplicationService {
+	rpc SendReplicate (ReplicateRequest) returns (ReplicateReply);
+	rpc ReceiveReplicate (ReplicateRequest) returns (ReplicateReply);
+
+	rpc SendRecoverRequest (RecoverRequest) returns (RecoverReply);
+	rpc ReceiveRecoverRequest (RecoverRequest) returns (RecoverReply);
+
+	rpc SendStateRequest (StateRequest) returns (StateReply);
+	rpc ReceiveStateRequest (StateRequest) returns (StateReply);
+}
+
+message ReplicateRequest {
+	string tm = 1;
+	int32 epoch = 2;
+	DadIntReplicate key_value = 3;
+	bool heldLeases = 4;
+}
+
+message ReplicateReply {
+	bool ok = 1;
+}
+
+message DadIntReplicate {
+	string key = 1;
+	int32 value = 2;
+}
+
+message RecoverRequest{
+	string tm = 1;
+	string key = 2;
+}
+
+message RecoverReply{
+	bool ok = 1;
+}
+
+message DadIntSate{
+	string key = 1;
+	int32 value = 2;
+}
+
+message StateRequest{
+	string sender = 1;
+	string receiver = 2;
+	DadIntSate key_value = 3;
+}
+
+message StateReply{
+	bool ok = 1;
+}
